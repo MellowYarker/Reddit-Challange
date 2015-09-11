@@ -7,13 +7,13 @@ root = Tk()
 def query():
     with open('Challanges/Capitals.csv') as csvfile:
         place = csv.reader(csvfile, delimiter=',')
-#If the STDin is the Capital City, STDout is the State.
+        #For every value in file, if the entered info (in the GUI) is the second value(Capital city), print the first value(State)
         for row in place:
-            if Field.get == row[1]:
-                print('%s is in %s'%(Field(), row([0])).join(row))
-#If the STDin is the state, STDout is the capital city.
-            elif Field == row[0]:
-                print('The capital city of %s is in %s'% (Field(), row([1])).join(row))
+            if Field.get() in row[1]:
+                print('%s is in %s'%(Field.get(), row([0])).join(row))
+            #Otherwise, print the second value
+            elif Field.get() in row[0]:
+                print('The capital city of %s is in %s'% (Field.get(), row([1])).join(row))
             else:
                 print("Try again")
 
